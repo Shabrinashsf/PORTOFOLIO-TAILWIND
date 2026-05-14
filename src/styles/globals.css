@@ -8,11 +8,13 @@
 html {
   overflow-y: scroll;
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  background-color: var(--bg-page);
 }
 
 body {
-  background-color: #131317;
-  color: #e4e1e7;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
@@ -47,18 +49,6 @@ body {
   --grid-color: rgba(255, 255, 255, 0.07);
   --accent: #2e5bff;
   --accent-light: #b8c3ff;
-}
-
-/* Smooth color transition when theme switches */
-html,
-html *,
-html *::before,
-html *::after {
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
 }
 
 /* Glass navigation */
@@ -119,7 +109,7 @@ html *::after {
 /* Smooth transitions on interactive elements only */
 a,
 button {
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 /* Disable transition for work experience logos */
@@ -160,9 +150,9 @@ button {
   box-shadow: 0 20px 40px rgba(46, 91, 255, 0.15);
 }
 
-/* Tech icon animation */
+/* Tech icon hover — handled by Framer Motion, no CSS transition */
 .tech-icon {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .tech-icon:hover {

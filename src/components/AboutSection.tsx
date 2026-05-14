@@ -50,7 +50,7 @@ export default function AboutSection() {
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: 48 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.0, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="w-12 h-[1px] mb-4"
             style={{ backgroundColor: "var(--accent)" }}
           />
@@ -68,7 +68,7 @@ export default function AboutSection() {
               style={{ color: "var(--accent)" }}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               passion
             </motion.span>
@@ -76,7 +76,7 @@ export default function AboutSection() {
         </ScrollReveal>
 
         {/* Bio */}
-        <ScrollReveal delay={0.2} className="max-w-3xl mb-16">
+        <ScrollReveal className="max-w-3xl mb-16">
           <p className="font-[Plus_Jakarta_Sans] text-base md:text-lg leading-relaxed mb-6"
             style={{ color: "var(--text-secondary)" }}
           >
@@ -101,7 +101,7 @@ export default function AboutSection() {
             style={{ borderColor: "var(--accent)" }}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="font-[Plus_Jakarta_Sans] text-lg italic opacity-90"
               style={{ color: "var(--accent-light)" }}
@@ -144,10 +144,10 @@ export default function AboutSection() {
                     <StaggerItem key={item.name}>
                       <motion.div
                         className="tech-icon flex flex-col items-center"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                        whileHover={{ scale: 1.08, rotate: 4 }}
+                        transition={{ type: "spring", stiffness: 180, damping: 25 }}
                       >
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl shadow-md flex items-center justify-center border transition-all duration-200"
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl shadow-md flex items-center justify-center border"
                           style={{
                             backgroundColor: "var(--bg-card)",
                             borderColor: "var(--border-color)",

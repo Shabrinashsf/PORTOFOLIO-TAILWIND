@@ -15,18 +15,18 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.15,
+      staggerChildren: 0.2,
+      delayChildren: 0.4,
     },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6 },
+    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -90,7 +90,7 @@ export default function Home() {
                     style={{ backgroundColor: "var(--accent)" }}
                     initial={{ width: 0 }}
                     animate={{ width: 48 }}
-                    transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
                   />
                   <span className="font-[Plus_Jakarta_Sans] text-xs font-semibold tracking-widest uppercase"
                     style={{ color: "var(--accent-light)" }}
@@ -111,7 +111,7 @@ export default function Home() {
                     style={{ color: "var(--accent)" }}
                     initial={{ opacity: 0, x: -30, rotate: -2 }}
                     animate={{ opacity: 1, x: 0, rotate: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 1.0, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   >
                     Shabrina.
                   </motion.span>
@@ -195,7 +195,7 @@ export default function Home() {
                 className="lg:col-span-5 relative hidden lg:flex items-center justify-center"
                 initial={{ opacity: 0, x: 60, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 1.1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Floating>
                   <div className="relative w-64 h-72">
@@ -250,14 +250,19 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Bento Grid */}
-            <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+            {/* Bento Grid — muncul setelah hero selesai */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            >
+            <StaggerContainer staggerDelay={0.18} className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
               {/* Card 1: Experience */}
               <StaggerItem>
                 <motion.div
-                  className="backdrop-blur-md border rounded-xl p-5 transition-all duration-300 group shadow-sm h-full cursor-default glass-card-40 glass-card-hover"
+                  className="backdrop-blur-md border rounded-xl p-5 group shadow-sm h-full cursor-default glass-card-40 glass-card-hover"
                   whileHover={{ y: -4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  transition={{ type: "spring", stiffness: 180, damping: 28 }}
                 >
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="font-[Outfit] text-lg font-semibold tracking-wide"
@@ -296,9 +301,9 @@ export default function Home() {
               {/* Card 2: Main Stack */}
               <StaggerItem>
                 <motion.div
-                  className="backdrop-blur-md border rounded-xl p-5 transition-all duration-300 group shadow-sm h-full cursor-default glass-card-40 glass-card-hover"
+                  className="backdrop-blur-md border rounded-xl p-5 group shadow-sm h-full cursor-default glass-card-40 glass-card-hover"
                   whileHover={{ y: -4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  transition={{ type: "spring", stiffness: 180, damping: 28 }}
                 >
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="font-[Outfit] text-lg font-semibold tracking-wide"
@@ -342,9 +347,9 @@ export default function Home() {
               {/* Card 3: Current Status */}
               <StaggerItem>
                 <motion.div
-                  className="backdrop-blur-md border rounded-xl p-5 transition-all duration-300 group shadow-sm h-full flex flex-col justify-between cursor-default glass-card-40 glass-card-hover"
+                  className="backdrop-blur-md border rounded-xl p-5 group shadow-sm h-full flex flex-col justify-between cursor-default glass-card-40 glass-card-hover"
                   whileHover={{ y: -4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  transition={{ type: "spring", stiffness: 180, damping: 28 }}
                 >
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="font-[Outfit] text-lg font-semibold tracking-wide"
@@ -390,6 +395,7 @@ export default function Home() {
                 </motion.div>
               </StaggerItem>
             </StaggerContainer>
+            </motion.div>
           </section>
         </div>
       </div>

@@ -113,7 +113,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.12,
     },
   },
 };
@@ -123,7 +123,7 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -155,7 +155,7 @@ export default function ProjectsSection() {
             className="flex flex-wrap gap-3"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             {filters.map((f) => (
               <button
@@ -184,15 +184,14 @@ export default function ProjectsSection() {
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((project, index) => (
-              <motion.div
+                <motion.div
                 key={project.id}
-                layout
                 variants={cardVariants}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="border rounded-lg p-6 md:p-8 flex flex-col h-full transition-colors duration-300 group"
+                transition={{ duration: 0.4, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                className="border rounded-lg p-6 md:p-8 flex flex-col h-full group"
                 style={{
                   backgroundColor: "var(--bg-page)",
                   borderColor: "var(--border-color)",

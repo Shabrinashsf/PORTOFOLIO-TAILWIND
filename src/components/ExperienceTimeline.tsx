@@ -145,7 +145,7 @@ export default function ExperienceTimeline() {
           style={{ borderColor: "var(--border-color)" }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           {[
             { key: "work", label: "Work" },
@@ -173,23 +173,22 @@ export default function ExperienceTimeline() {
             {filtered.map((item, index) => (
               <motion.div
                 key={item.id}
-                layout
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
                 className="relative group"
               >
                 {/* Timeline Dot */}
                 <motion.div
-                  className={`absolute -left-[41px] md:-left-[57px] top-1 w-4 h-4 rounded-full border-2 transition-colors duration-300`}
+                  className={`absolute -left-[41px] md:-left-[57px] top-1 w-4 h-4 rounded-full border-2`}
                   style={{
                     backgroundColor: "var(--bg-page)",
                     borderColor: index === 0 && filter !== "volunteer" ? "var(--accent)" : "var(--border-color)",
                   }}
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ delay: index * 0.1 + 0.2 }}
+                  transition={{ delay: index * 0.12 + 0.25 }}
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-4 md:gap-8">
@@ -216,13 +215,13 @@ export default function ExperienceTimeline() {
 
                   {/* Content Card */}
                   <motion.div
-                    className="p-6 md:p-8 rounded-lg border transition-colors duration-300"
+                    className="p-6 md:p-8 rounded-lg border"
                     style={{
                       backgroundColor: "var(--bg-card)",
                       borderColor: "var(--border-color)",
                     }}
                     whileHover={{ y: -2, borderColor: "var(--accent)" }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    transition={{ type: "spring", stiffness: 180, damping: 28 }}
                   >
                     <h3 className="font-[Outfit] text-xl md:text-2xl font-semibold mb-3"
                       style={{ color: "var(--accent)" }}

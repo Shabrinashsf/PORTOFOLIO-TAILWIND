@@ -22,7 +22,7 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className="fixed top-0 w-full z-50 glass-nav"
     >
       <div className="flex justify-between items-center px-8 md:px-16 py-4 max-w-7xl mx-auto">
@@ -32,7 +32,7 @@ export default function Navbar() {
         >
           <Link
             href="/"
-            className="font-[Outfit] text-2xl font-semibold transition-colors duration-200"
+            className="font-[Outfit] text-2xl font-semibold"
             style={{ color: "var(--text-primary)" }}
           >
             Shabrina.
@@ -45,11 +45,11 @@ export default function Navbar() {
               key={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index + 0.3 }}
+              transition={{ delay: 0.12 * index + 0.5 }}
             >
               <Link
                 href={link.href}
-                className="font-[Plus_Jakarta_Sans] text-sm font-semibold tracking-wider uppercase transition-colors duration-300 pb-1"
+                className="font-[Plus_Jakarta_Sans] text-sm font-semibold tracking-wider uppercase pb-1"
                 style={{
                   color: router.pathname === link.href ? "var(--accent)" : "var(--text-secondary)",
                   borderBottom: router.pathname === link.href ? "2px solid var(--accent)" : "2px solid transparent",
@@ -66,7 +66,7 @@ export default function Navbar() {
             href="https://drive.google.com/drive/folders/1rpSsVFK1jUOqBxiYqPJ7mjmQTIu6hVOE?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-2 border rounded-md font-[Plus_Jakarta_Sans] text-sm font-semibold tracking-wider uppercase transition-colors duration-200"
+            className="inline-flex items-center justify-center px-6 py-2 border rounded-md font-[Plus_Jakarta_Sans] text-sm font-semibold tracking-wider uppercase"
             style={{
               backgroundColor: "var(--bg-card)",
               borderColor: "var(--border-color)",
@@ -76,7 +76,7 @@ export default function Navbar() {
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
+            transition={{ delay: 1.0 }}
           >
             CV
           </motion.a>

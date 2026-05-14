@@ -48,7 +48,7 @@ export default function ContactSection() {
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: 48 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="w-12 h-[1px] mb-4"
             style={{ backgroundColor: "var(--accent)" }}
           />
@@ -66,7 +66,7 @@ export default function ContactSection() {
               style={{ color: "var(--accent)" }}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
               talk.
             </motion.span>
@@ -95,7 +95,7 @@ export default function ContactSection() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-4 backdrop-blur-md border rounded-xl p-4 transition-all duration-300 glass-card-60 glass-border-hover"
+                      className="group flex items-center gap-4 backdrop-blur-md border rounded-xl p-4 glass-card-60 glass-border-hover"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -142,9 +142,9 @@ export default function ContactSection() {
                 Email
               </h2>
               <motion.div
-                className="backdrop-blur-md border rounded-xl p-6 md:p-8 transition-colors duration-300 glass-card-60 glass-border-hover"
+                className="backdrop-blur-md border rounded-xl p-6 md:p-8 glass-card-60 glass-border-hover"
                 whileHover={{ y: -2 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                transition={{ type: "spring", stiffness: 180, damping: 28 }}
               >
                 <p className="font-[Plus_Jakarta_Sans] text-base leading-relaxed mb-6"
                   style={{ color: "var(--text-secondary)" }}
@@ -173,7 +173,7 @@ export default function ContactSection() {
 
                 <motion.a
                   href="mailto:shabrinaamalia860@gmail.com"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3 font-[Plus_Jakarta_Sans] text-sm font-semibold tracking-wider uppercase rounded-md transition-all duration-200 w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 font-[Plus_Jakarta_Sans] text-sm font-semibold tracking-wider uppercase rounded-md w-full sm:w-auto"
                   style={{
                     backgroundColor: "var(--accent)",
                     color: "#efefff",

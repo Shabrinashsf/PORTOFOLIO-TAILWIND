@@ -4,9 +4,9 @@ import { motion, useInView, useMotionValue, useTransform, useSpring, useScroll, 
 import { ReactNode, useRef, useEffect, useState } from "react";
 
 // ===== Enhanced Spring Configs =====
-const springConfig = { type: "spring" as const, stiffness: 300, damping: 20 };
-const bouncySpring = { type: "spring" as const, stiffness: 400, damping: 15 };
-const softSpring = { type: "spring" as const, stiffness: 200, damping: 25 };
+const springConfig = { type: "spring" as const, stiffness: 180, damping: 28 };
+const bouncySpring = { type: "spring" as const, stiffness: 250, damping: 25 };
+const softSpring = { type: "spring" as const, stiffness: 150, damping: 30 };
 
 // ===== Fade In =====
 export function FadeIn({
@@ -24,7 +24,7 @@ export function FadeIn({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration, delay, ease: "easeOut" }}
+      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
@@ -46,7 +46,7 @@ export function SlideUp({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ ...springConfig, delay }}
       className={className}
@@ -70,7 +70,7 @@ export function SlideInLeft({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -40 }}
+      initial={{ opacity: 0, x: -25 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ ...springConfig, delay }}
       className={className}
@@ -94,7 +94,7 @@ export function SlideInRight({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: 40 }}
+      initial={{ opacity: 0, x: 25 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ ...springConfig, delay }}
       className={className}
@@ -131,7 +131,7 @@ export function ScaleIn({
 // ===== Stagger Container =====
 export function StaggerContainer({
   children,
-  staggerDelay = 0.1,
+  staggerDelay = 0.15,
   className = "",
 }: {
   children: ReactNode;
@@ -173,7 +173,7 @@ export function StaggerItem({
   className?: string;
 }) {
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
+      hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
@@ -201,7 +201,7 @@ export function HoverScale({
   return (
     <motion.div
       whileHover={{ scale }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
@@ -220,11 +220,11 @@ export function Floating({
   return (
     <motion.div
       animate={{
-        y: [0, -12, 0],
-        rotate: [0, 1, -1, 0],
+        y: [0, -10, 0],
+        rotate: [0, 0.5, -0.5, 0],
       }}
       transition={{
-        duration: 4,
+        duration: 6,
         repeat: Infinity,
         ease: "easeInOut",
       }}
@@ -249,7 +249,7 @@ export function TextReveal({
     <motion.span
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {text}
@@ -320,7 +320,7 @@ export function GlowPulse({
         ],
       }}
       transition={{
-        duration: 2,
+        duration: 3,
         repeat: Infinity,
         ease: "easeInOut",
       }}
@@ -344,7 +344,7 @@ export function PageTransition({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
@@ -368,8 +368,8 @@ export function ScrollReveal({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ ...springConfig, delay }}
       className={className}
     >
@@ -390,7 +390,7 @@ export function MagneticButton({
     <motion.button
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      transition={{ type: "spring", stiffness: 280, damping: 26 }}
       className={className}
     >
       {children}
@@ -416,7 +416,7 @@ export function AnimatedCounter({
       ref={ref}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {isInView ? `${value}${suffix}` : `0${suffix}`}
@@ -462,8 +462,8 @@ export function MouseParallax({
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springX = useSpring(mouseX, { stiffness: 150, damping: 15 });
-  const springY = useSpring(mouseY, { stiffness: 150, damping: 15 });
+  const springX = useSpring(mouseX, { stiffness: 120, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 120, damping: 20 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -565,7 +565,7 @@ export function WobbleHover({
         scale: 1.05,
         rotate: [0, -2, 2, -1, 1, 0],
       }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
@@ -587,7 +587,7 @@ export function PulseRing({
         className="absolute inset-0 rounded-full"
         style={{ border: "2px solid var(--accent)" }}
         animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       />
       {children}
     </div>
