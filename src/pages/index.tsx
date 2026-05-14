@@ -1,0 +1,398 @@
+import Head from "next/head";
+import Link from "next/link";
+import { motion, Variants } from "framer-motion";
+import {
+  StaggerContainer,
+  StaggerItem,
+  Floating,
+} from "@/components/animations";
+import GridBackground from "@/components/GridBackground";
+
+const techStack = ["Go", "Gin", "Laravel", "PostgreSQL", "NextJS", "TypeScript", "Tailwind CSS"];
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>Shabrina - Portfolio</title>
+        <meta
+          name="description"
+          content="Shabrina Amalia Safaana - Backend Developer Portfolio"
+        />
+      </Head>
+
+      <div
+        className="min-h-[calc(100vh-64px)] relative"
+        style={{ backgroundColor: "var(--bg-page)", color: "var(--text-primary)" }}
+      >
+        <GridBackground />
+        <div className="flex flex-col justify-center px-8 md:px-16 max-w-7xl mx-auto w-full relative z-10 py-12 md:py-16">
+          <section className="w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Left Side: Typography and Bio */}
+              <motion.div
+                className="lg:col-span-7 flex flex-col items-start"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {/* Status Badge */}
+                <motion.div
+                  variants={itemVariants}
+                  className="inline-flex items-center px-3 py-1 mb-6 rounded-full border backdrop-blur-sm"
+                  style={{
+                    borderColor: "var(--border-color)",
+                    backgroundColor: "var(--bg-card)",
+                  }}
+                >
+                  <span className="relative flex h-2 w-2 mr-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                      style={{ backgroundColor: "var(--accent)" }}
+                    />
+                    <span className="relative inline-flex rounded-full h-2 w-2"
+                      style={{ backgroundColor: "var(--accent)" }}
+                    />
+                  </span>
+                  <span className="font-[Plus_Jakarta_Sans] text-[10px] font-medium uppercase tracking-wider"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    Available for work
+                  </span>
+                </motion.div>
+
+                {/* Quote */}
+                <motion.div
+                  variants={itemVariants}
+                  className="mb-4 flex items-center space-x-3"
+                >
+                  <motion.span
+                    className="h-[1px]"
+                    style={{ backgroundColor: "var(--accent)" }}
+                    initial={{ width: 0 }}
+                    animate={{ width: 48 }}
+                    transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                  <span className="font-[Plus_Jakarta_Sans] text-xs font-semibold tracking-widest uppercase"
+                    style={{ color: "var(--accent-light)" }}
+                  >
+                    &quot;This is the way.&quot;
+                  </span>
+                </motion.div>
+
+                {/* Title */}
+                <motion.h1
+                  variants={itemVariants}
+                  className="font-[Outfit] text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-4 leading-tight"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  Hi, I&apos;m <br className="hidden md:block" />
+                  <motion.span
+                    className="italic inline-block"
+                    style={{ color: "var(--accent)" }}
+                    initial={{ opacity: 0, x: -30, rotate: -2 }}
+                    animate={{ opacity: 1, x: 0, rotate: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    Shabrina.
+                  </motion.span>
+                </motion.h1>
+
+                {/* Bio */}
+                <motion.div variants={itemVariants} className="mb-8 space-y-3">
+                  <p className="font-[Plus_Jakarta_Sans] text-base italic opacity-80"
+                    style={{ color: "var(--accent-light)" }}
+                  >
+                    Fait avec amour.
+                  </p>
+                  <p className="font-[Plus_Jakarta_Sans] text-base md:text-lg max-w-xl leading-relaxed"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    I&apos;m a T-shaped{" "}
+                    <span className="font-medium" style={{ color: "var(--accent)" }}>
+                      Backend Developer
+                    </span>{" "}
+                    currently exploring the beautiful chaos of Frontend
+                    engineering and Product Management. Building systems that
+                    scale and experiences that resonate.
+                  </p>
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  variants={itemVariants}
+                  className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4"
+                >
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center px-8 py-3 rounded-md font-[Plus_Jakarta_Sans] text-sm font-semibold tracking-wider uppercase transition-all duration-200 hover:-translate-y-1"
+                    style={{
+                      backgroundColor: "var(--accent)",
+                      color: "#efefff",
+                      boxShadow: "0 0 15px rgba(46,91,255,0.3)",
+                    }}
+                  >
+                    Get in Touch
+                    <svg
+                      className="ml-2 w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </Link>
+                  <a
+                    href="https://drive.google.com/drive/folders/1rpSsVFK1jUOqBxiYqPJ7mjmQTIu6hVOE?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-8 py-3 backdrop-blur-sm border rounded-md font-[Plus_Jakarta_Sans] text-sm font-semibold tracking-wider uppercase transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                    style={{
+                      backgroundColor: "var(--bg-card)",
+                      borderColor: "var(--border-color)",
+                      color: "var(--text-primary)",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)";
+                      (e.currentTarget as HTMLElement).style.backgroundColor = "var(--bg-card-hover)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = "var(--border-color)";
+                      (e.currentTarget as HTMLElement).style.backgroundColor = "var(--bg-card)";
+                    }}
+                  >
+                    View CV
+                  </a>
+                </motion.div>
+              </motion.div>
+
+              {/* Right Side: Decorative Frame */}
+              <motion.div
+                className="lg:col-span-5 relative hidden lg:flex items-center justify-center"
+                initial={{ opacity: 0, x: 60, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Floating>
+                  <div className="relative w-64 h-72">
+                    <div className="absolute -inset-0.5 rounded-2xl blur-lg opacity-50"
+                      style={{ background: "linear-gradient(to top right, rgba(46,91,255,0.3), rgba(184,195,255,0.3))" }}
+                    />
+                    <div className="absolute -inset-4 border rounded-3xl transform rotate-3"
+                      style={{ borderColor: "var(--border-color)" }}
+                    />
+                    <div className="absolute -inset-4 border rounded-3xl transform -rotate-2"
+                      style={{ borderColor: "var(--border-color)" }}
+                    />
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden border shadow-2xl flex items-center justify-center"
+                      style={{
+                        borderColor: "var(--border-color)",
+                        backgroundColor: "var(--bg-card)",
+                      }}
+                    >
+                      <div className="text-center px-4">
+                        <div className="w-16 h-16 mx-auto mb-3 rounded-full flex items-center justify-center"
+                          style={{ backgroundColor: "rgba(46,91,255,0.15)" }}
+                        >
+                          <svg
+                            className="w-8 h-8"
+                            style={{ color: "var(--accent)" }}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={1.5}
+                              d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+                            />
+                          </svg>
+                        </div>
+                        <p className="font-[Outfit] text-xl font-semibold"
+                          style={{ color: "var(--text-primary)" }}
+                        >
+                          Code.
+                        </p>
+                        <p className="font-[Plus_Jakarta_Sans] text-sm mt-1"
+                          style={{ color: "var(--text-secondary)" }}
+                        >
+                          Create. Deploy.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Floating>
+              </motion.div>
+            </div>
+
+            {/* Bento Grid */}
+            <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+              {/* Card 1: Experience */}
+              <StaggerItem>
+                <motion.div
+                  className="backdrop-blur-md border rounded-xl p-5 transition-all duration-300 group shadow-sm h-full cursor-default glass-card-40 glass-card-hover"
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-[Outfit] text-lg font-semibold tracking-wide"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      Experience
+                    </h3>
+                    <svg
+                      className="w-5 h-5 transition-colors group-hover:text-[var(--accent)]"
+                      style={{ color: "var(--text-muted)" }}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  <p className="font-[Outfit] text-2xl font-semibold mb-1"
+                    style={{ color: "var(--text-primary)" }}
+                  >
+                    10+ Projects
+                  </p>
+                  <p className="font-[Plus_Jakarta_Sans] text-sm"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    Successfully delivered and deployed.
+                  </p>
+                </motion.div>
+              </StaggerItem>
+
+              {/* Card 2: Main Stack */}
+              <StaggerItem>
+                <motion.div
+                  className="backdrop-blur-md border rounded-xl p-5 transition-all duration-300 group shadow-sm h-full cursor-default glass-card-40 glass-card-hover"
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-[Outfit] text-lg font-semibold tracking-wide"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      Main Stack
+                    </h3>
+                    <svg
+                      className="w-5 h-5 transition-colors group-hover:text-[var(--accent)]"
+                      style={{ color: "var(--text-muted)" }}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+                      />
+                    </svg>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {techStack.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2.5 py-1 border font-[Plus_Jakarta_Sans] text-xs font-medium rounded-md shadow-sm"
+                        style={{
+                          backgroundColor: "var(--bg-page)",
+                          borderColor: "var(--border-color)",
+                          color: "var(--text-primary)",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              </StaggerItem>
+
+              {/* Card 3: Current Status */}
+              <StaggerItem>
+                <motion.div
+                  className="backdrop-blur-md border rounded-xl p-5 transition-all duration-300 group shadow-sm h-full flex flex-col justify-between cursor-default glass-card-40 glass-card-hover"
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-[Outfit] text-lg font-semibold tracking-wide"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      Current Status
+                    </h3>
+                    <svg
+                      className="w-5 h-5 transition-colors group-hover:text-[var(--accent)]"
+                      style={{ color: "var(--text-muted)" }}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div className="flex items-center space-x-3 border p-3 rounded-lg"
+                    style={{
+                      backgroundColor: "var(--bg-page)",
+                      borderColor: "var(--border-color)",
+                    }}
+                  >
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                        style={{ backgroundColor: "var(--accent)" }}
+                      />
+                      <span className="relative inline-flex rounded-full h-3 w-3"
+                        style={{ backgroundColor: "var(--accent)" }}
+                      />
+                    </span>
+                    <p className="font-[Plus_Jakarta_Sans] text-sm"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      Open to Collaborations
+                    </p>
+                  </div>
+                </motion.div>
+              </StaggerItem>
+            </StaggerContainer>
+          </section>
+        </div>
+      </div>
+    </>
+  );
+}
