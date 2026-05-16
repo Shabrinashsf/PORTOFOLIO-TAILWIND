@@ -29,7 +29,7 @@ const experiences: ExperienceItem[] = [
   {
     id: 2,
     type: "volunteer",
-    org: "Futurest 2026",
+    org: "Schematics 2026",
     period: "Maret 2026 — Now",
     role: "Director IT Development",
     description:
