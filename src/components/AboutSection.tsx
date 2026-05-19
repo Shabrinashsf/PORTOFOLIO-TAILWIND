@@ -86,19 +86,20 @@ export default function AboutSection() {
           <p className="font-[Plus_Jakarta_Sans] text-base md:text-lg leading-relaxed mb-6"
             style={{ color: "var(--text-secondary)" }}
           >
-            Mostly utilize{" "}
-            <span className="font-medium" style={{ color: "var(--accent)" }}>Go programming language</span>,{" "}
-            <span className="font-medium" style={{ color: "var(--accent)" }}>Gin</span> or{" "}
-            <span className="font-medium" style={{ color: "var(--accent)" }}>Fiber</span> web framework, and{" "}
-            <span className="font-medium" style={{ color: "var(--accent)" }}>PostgreSQL</span> database to build
-            scalable and efficient APIs. Constantly learning and growing each day.
+            Mostly Second-year Informatics Engineering student at ITS with{" "}
+            <span className="font-medium" style={{ color: "var(--accent)" }}>2 years</span> of{" "}
+            <span className="font-medium" style={{ color: "var(--accent)" }}>production experience</span> building scalable APIs using{" "}
+            <span className="font-medium" style={{ color: "var(--accent)" }}>Golang (Gin/Fiber)</span>,{" "}
+            <span className="font-medium" style={{ color: "var(--accent)" }}>PostgreSQL</span>, and{" "}
+            <span className="font-medium" style={{ color: "var(--accent)" }}>modern cloud infrastructure</span>.{" "}
           </p>
           <p className="font-[Plus_Jakarta_Sans] text-base md:text-lg leading-relaxed mb-8"
             style={{ color: "var(--text-secondary)" }}
           >
-            Focused on building scalable and reliable REST APIs that meet both
-            functional and technical industry standards. Currently expanding my
-            expertise into Frontend engineering and Product Management.
+            Proven track record leading teams of{" "}
+            <span className="font-medium" style={{ color: "var(--accent)" }}>7+ developers</span> and delivering systems for{" "}
+            <span className="font-medium" style={{ color: "var(--accent)" }}>30,000+ concurrent users</span>.{" "}
+            Specialized in high performance REST APIs, payment gateway integrations, database optimization, and DevOps; currently expanding my expertise in Product Management and Frontend development while maintaining strong technical expertise in system architecture and backend development.
           </p>
 
           {/* Quote */}

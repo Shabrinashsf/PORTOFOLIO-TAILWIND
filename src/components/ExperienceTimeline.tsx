@@ -31,7 +31,7 @@ const experiences: ExperienceItem[] = [
     type: "volunteer",
     org: "Schematics 2026",
     period: "Maret 2026 — Now",
-    role: "Director IT Development",
+    role: "Technical Project Manager",
     description:
       "Schematics is an annual event organized by students of the Informatics Engineering Department at Institut Teknologi Sepuluh Nopember.",
     tags: ["Team Management", "Go", "Gin", "PostgreSQL"],
@@ -41,7 +41,7 @@ const experiences: ExperienceItem[] = [
     type: "volunteer",
     org: "TEDxITS 2026",
     period: "Jan 2026 - May 2026",
-    role: "Manager Backend Developer",
+    role: "Manager Backend",
     description:
       "TEDxITS is an annual event that provides a platform for the community, especially those within the Institut Teknologi Sepuluh Nopember environment, to share their compelling ideas.",
     tags: ["Go", "Fiber", "PostgreSQL"],
@@ -61,7 +61,7 @@ const experiences: ExperienceItem[] = [
     type: "volunteer",
     org: "Ini Lho ITS! 2026",
     period: "Feb 2026 - Apr 2026",
-    role: "Manager Backend Developer",
+    role: "Manager Backend",
     description:
       "Ini Lho ITS! is an annual event that introduces Institut Teknologi Sepuluh Nopember to the wider public especially high school and vocational school students.",
     tags: ["Go", "Gin", "PostgreSQL"],
