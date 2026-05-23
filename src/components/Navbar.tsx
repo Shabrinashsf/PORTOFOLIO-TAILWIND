@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
+import AudioToggle from "@/components/AudioToggle";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -62,28 +63,12 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <motion.a
-            href="https://drive.google.com/drive/folders/1rpSsVFK1jUOqBxiYqPJ7mjmQTIu6hVOE?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-2 border rounded-md font-[Plus_Jakarta_Sans] text-sm font-semibold tracking-wider uppercase"
-            style={{
-              backgroundColor: "var(--bg-card)",
-              borderColor: "var(--border-color)",
-              color: "var(--accent)",
-            }}
-            whileHover={{ scale: 1.05, borderColor: "var(--accent)" }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.0 }}
-          >
-            CV
-          </motion.a>
+          <AudioToggle />
           <ThemeToggle />
         </div>
 
         <div className="flex md:hidden items-center gap-3">
+          <AudioToggle />
           <ThemeToggle />
           <motion.button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

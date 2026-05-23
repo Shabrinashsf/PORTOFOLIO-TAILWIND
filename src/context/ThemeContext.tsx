@@ -1,12 +1,15 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from "react";
 
 type Theme = "light" | "dark";
 
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
+  transitioning: boolean;
+  transitionTarget: Theme | null;
+  finishTransition: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -14,6 +17,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
+  const [transitioning, setTransitioning] = useState(false);
+  const [transitionTarget, setTransitionTarget] = useState<Theme | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -34,12 +39,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       theme === "dark" ? "#131317" : "#f5f5f8";
   }, [theme, mounted]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
+  const toggleTheme = useCallback(() => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTransitionTarget(nextTheme);
+    setTransitioning(true);
+  }, [theme]);
+
+  const finishTransition = useCallback(() => {
+    if (transitionTarget) {
+      setTheme(transitionTarget);
+    }
+    setTransitioning(false);
+    setTransitionTarget(null);
+  }, [transitionTarget]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, transitioning, transitionTarget, finishTransition }}>
       {children}
     </ThemeContext.Provider>
   );

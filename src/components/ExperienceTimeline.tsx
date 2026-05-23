@@ -184,7 +184,7 @@ export default function ExperienceTimeline() {
                   className={`absolute -left-[41px] md:-left-[57px] top-1 w-4 h-4 rounded-full border-2`}
                   style={{
                     backgroundColor: "var(--bg-page)",
-                    borderColor: index === 0 && filter !== "volunteer" ? "var(--accent)" : "var(--border-color)",
+                    borderColor: index === 0 ? "var(--accent)" : "var(--border-color)",
                   }}
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
