@@ -86,7 +86,7 @@ export default function AboutSection() {
           <p className="font-[Plus_Jakarta_Sans] text-base md:text-lg leading-relaxed mb-6"
             style={{ color: "var(--text-secondary)" }}
           >
-            Mostly Second-year Informatics Engineering student at ITS with{" "}
+            A Third-year Informatics Engineering student at ITS with{" "}
             <span className="font-medium" style={{ color: "var(--accent)" }}>2 years</span> of{" "}
             <span className="font-medium" style={{ color: "var(--accent)" }}>production experience</span> building scalable APIs using{" "}
             <span className="font-medium" style={{ color: "var(--accent)" }}>Golang (Gin/Fiber)</span>,{" "}

@@ -16,8 +16,28 @@ type ExperienceItem = {
 };
 
 const experiences: ExperienceItem[] = [
-  {
+    {
     id: 1,
+    type: "work",
+    org: "Direktorat Pengembangan dan Sistem Informasi ITS",
+    period: "June 2026 - Present",
+    role: "Fullstack Developer",
+    description:
+      "",
+    tags: ["PHP", "Laravel", "MySQL"],
+  },
+    {
+    id: 2,
+    type: "work",
+    org: "Dikmenum Dinas Pendidikan Jawa Timur",
+    period: "January 2026 - June 2026",
+    role: "Backend Developer",
+    description:
+      "",
+    tags: ["PHP", "Laravel", "Golang", "MariaDB"],
+  },
+  {
+    id: 3,
     type: "work",
     org: "Jago Teknik",
     period: "Feb 2026 — Maret 2026",
@@ -27,7 +47,7 @@ const experiences: ExperienceItem[] = [
     tags: ["Go", "Gin", "Gorm", "PostgreSQL"],
   },
   {
-    id: 2,
+    id: 4,
     type: "volunteer",
     org: "Schematics 2026",
     period: "Maret 2026 — Now",
@@ -37,7 +57,7 @@ const experiences: ExperienceItem[] = [
     tags: ["Team Management", "Go", "Gin", "PostgreSQL"],
   },
   {
-    id: 3,
+    id: 5,
     type: "volunteer",
     org: "TEDxITS 2026",
     period: "Jan 2026 - May 2026",
@@ -47,7 +67,7 @@ const experiences: ExperienceItem[] = [
     tags: ["Go", "Fiber", "PostgreSQL"],
   },
   {
-    id: 4,
+    id: 6,
     type: "volunteer",
     org: "Futurest 2026",
     period: "Feb 2026 - Apr 2026",
@@ -57,7 +77,7 @@ const experiences: ExperienceItem[] = [
     tags: ["Go", "Gin", "PostgreSQL"],
   },
   {
-    id: 5,
+    id: 7,
     type: "volunteer",
     org: "Ini Lho ITS! 2026",
     period: "Feb 2026 - Apr 2026",
@@ -67,7 +87,7 @@ const experiences: ExperienceItem[] = [
     tags: ["Go", "Gin", "PostgreSQL"],
   },
   {
-    id: 6,
+    id: 8,
     type: "volunteer",
     org: "180DC ITS",
     period: "Oct 2025 — Dec 2025",
@@ -77,7 +97,7 @@ const experiences: ExperienceItem[] = [
     tags: ["Go", "Gin", "PostgreSQL"],
   },
   {
-    id: 7,
+    id: 9,
     type: "volunteer",
     org: "Schematics 2025",
     period: "Sep 2025 — Oct 2025",
@@ -87,7 +107,7 @@ const experiences: ExperienceItem[] = [
     tags: ["Go", "Gin", "PostgreSQL", "Team Management"],
   },
   {
-    id: 8,
+    id: 10,
     type: "volunteer",
     org: "TEDxITS 2025",
     period: "Aug 2025 — Sep 2025",
@@ -97,7 +117,7 @@ const experiences: ExperienceItem[] = [
     tags: ["Go", "Gin", "PostgreSQL"],
   },
   {
-    id: 9,
+    id: 11,
     type: "volunteer",
     org: "Ini Lho ITS! 2025",
     period: "Jun 2025 — Aug 2025",
